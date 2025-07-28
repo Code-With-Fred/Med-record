@@ -60,7 +60,7 @@ interface MedicalRecordsProps {
 
 export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
   const [records, setRecords] = useState<MedicalRecord[]>([])
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState("")
   const [showAddForm, setShowAddForm] = useState(false)
   const [selectedRecord, setSelectedRecord] = useState<MedicalRecord | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -68,21 +68,21 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
   const [isGeneratingAI, setIsGeneratingAI] = useState(false)
 
   const [newRecord, setNewRecord] = useState({
-    patientId: '',
-    patientName: '',
-    type: 'consultation' as const,
-    symptoms: '',
-    diagnosis: '',
-    medications: '',
+    patientId: "",
+    patientName: "",
+    type: "consultation" as const,
+    symptoms: "",
+    diagnosis: "",
+    medications: "",
     vitals: {
-      temperature: '',
-      bloodPressure: '',
-      heartRate: '',
-      weight: '',
-      height: ''
+      temperature: "",
+      bloodPressure: "",
+      heartRate: "",
+      weight: "",
+      height: "",
     },
-    notes: '',
-    attachments: [] as string[]
+    notes: "",
+    attachments: [] as string[],
   })
 
   useEffect(() => {
@@ -95,68 +95,71 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
     setTimeout(() => {
       const mockRecords: MedicalRecord[] = [
         {
-          id: '1',
-          patientId: '1',
-          patientName: 'John Doe',
-          date: '2024-01-20',
-          type: 'consultation',
-          symptoms: 'Chest pain, shortness of breath, fatigue',
-          diagnosis: 'Hypertensive heart disease',
-          medications: ['Lisinopril 10mg', 'Metoprolol 50mg'],
+          id: "1",
+          patientId: "1",
+          patientName: "John Doe",
+          date: "2024-01-20",
+          type: "consultation",
+          symptoms: "Chest pain, shortness of breath, fatigue",
+          diagnosis: "Hypertensive heart disease",
+          medications: ["Lisinopril 10mg", "Metoprolol 50mg"],
           vitals: {
-            temperature: '98.6°F',
-            bloodPressure: '150/95',
-            heartRate: '88 bpm',
-            weight: '180 lbs',
-            height: '5\'10"'
+            temperature: "98.6°F",
+            bloodPressure: "150/95",
+            heartRate: "88 bpm",
+            weight: "180 lbs",
+            height: "5'10\"",
           },
-          notes: 'Patient reports chest discomfort for 3 days. ECG shows mild LVH. Recommend lifestyle changes and medication compliance.',
+          notes:
+            "Patient reports chest discomfort for 3 days. ECG shows mild LVH. Recommend lifestyle changes and medication compliance.",
           attachments: [],
-          doctorName: 'Dr. Sarah Wilson',
-          status: 'completed'
+          doctorName: "Dr. Sarah Wilson",
+          status: "completed",
         },
         {
-          id: '2',
-          patientId: '2',
-          patientName: 'Sarah Johnson',
-          date: '2024-01-18',
-          type: 'lab',
-          symptoms: 'Increased thirst, frequent urination, blurred vision',
-          diagnosis: 'Type 2 Diabetes Mellitus - uncontrolled',
-          medications: ['Metformin 1000mg', 'Glipizide 5mg'],
+          id: "2",
+          patientId: "2",
+          patientName: "Sarah Johnson",
+          date: "2024-01-18",
+          type: "lab",
+          symptoms: "Increased thirst, frequent urination, blurred vision",
+          diagnosis: "Type 2 Diabetes Mellitus - uncontrolled",
+          medications: ["Metformin 1000mg", "Glipizide 5mg"],
           vitals: {
-            temperature: '98.2°F',
-            bloodPressure: '135/80',
-            heartRate: '76 bpm',
-            weight: '165 lbs',
-            height: '5\'6"'
+            temperature: "98.2°F",
+            bloodPressure: "135/80",
+            heartRate: "76 bpm",
+            weight: "165 lbs",
+            height: "5'6\"",
           },
-          notes: 'HbA1c: 9.2%. Fasting glucose: 280 mg/dL. Patient needs better glucose control. Referred to endocrinologist.',
-          attachments: ['lab-results-hba1c.pdf'],
-          doctorName: 'Dr. Michael Chen',
-          status: 'reviewed'
+          notes:
+            "HbA1c: 9.2%. Fasting glucose: 280 mg/dL. Patient needs better glucose control. Referred to endocrinologist.",
+          attachments: ["lab-results-hba1c.pdf"],
+          doctorName: "Dr. Michael Chen",
+          status: "reviewed",
         },
         {
-          id: '3',
-          patientId: '3',
-          patientName: 'Michael Chen',
-          date: '2024-01-15',
-          type: 'consultation',
-          symptoms: 'Wheezing, cough, difficulty breathing',
-          diagnosis: 'Asthma exacerbation',
-          medications: ['Albuterol inhaler', 'Prednisone 20mg'],
+          id: "3",
+          patientId: "3",
+          patientName: "Michael Chen",
+          date: "2024-01-15",
+          type: "consultation",
+          symptoms: "Wheezing, cough, difficulty breathing",
+          diagnosis: "Asthma exacerbation",
+          medications: ["Albuterol inhaler", "Prednisone 20mg"],
           vitals: {
-            temperature: '99.1°F',
-            bloodPressure: '120/75',
-            heartRate: '92 bpm',
-            weight: '170 lbs',
-            height: '5\'8"'
+            temperature: "99.1°F",
+            bloodPressure: "120/75",
+            heartRate: "92 bpm",
+            weight: "170 lbs",
+            height: "5'8\"",
           },
-          notes: 'Peak flow: 60% of predicted. Administered nebulizer treatment. Patient responded well. Continue current regimen.',
+          notes:
+            "Peak flow: 60% of predicted. Administered nebulizer treatment. Patient responded well. Continue current regimen.",
           attachments: [],
-          doctorName: 'Dr. Emily Rodriguez',
-          status: 'completed'
-        }
+          doctorName: "Dr. Emily Rodriguez",
+          status: "completed",
+        },
       ]
       setRecords(mockRecords)
       setIsLoading(false)
@@ -169,17 +172,21 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
     setIsGeneratingAI(true)
     try {
       const { text } = await generateText({
-        model: openai('gpt-4o'),
-        system: 'You are a medical AI assistant. Based on the symptoms provided, suggest 3-5 possible diagnoses. Format as a simple list, one diagnosis per line. Be conservative and always recommend professional medical evaluation.',
-        prompt: `Patient presents with the following symptoms: ${symptoms}. What are the most likely diagnoses to consider?`
+        model: openai("gpt-4o"),
+        system:
+          "You are a medical AI assistant. Based on the symptoms provided, suggest 3-5 possible diagnoses. Format as a simple list, one diagnosis per line. Be conservative and always recommend professional medical evaluation.",
+        prompt: `Patient presents with the following symptoms: ${symptoms}. What are the most likely diagnoses to consider?`,
       })
 
-      const suggestions = text.split('\n').filter(line => line.trim()).slice(0, 5)
+      const suggestions = text
+        .split("\n")
+        .filter((line) => line.trim())
+        .slice(0, 5)
       setAiSuggestions(suggestions)
-      toast.success('AI suggestions generated!')
+      toast.success("AI suggestions generated!")
     } catch (error) {
-      toast.error('Failed to generate AI suggestions')
-      console.error('AI generation error:', error)
+      toast.error("Failed to generate AI suggestions")
+      console.error("AI generation error:", error)
     } finally {
       setIsGeneratingAI(false)
     }
@@ -187,78 +194,91 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
 
   const handleAddRecord = async () => {
     if (!newRecord.patientName || !newRecord.symptoms) {
-      toast.error('Please fill in required fields')
+      toast.error("Please fill in required fields")
       return
     }
 
     setIsLoading(true)
-    
+
     // Simulate API call
     setTimeout(() => {
       const record: MedicalRecord = {
         id: Date.now().toString(),
         ...newRecord,
         patientId: newRecord.patientId || Date.now().toString(),
-        date: new Date().toISOString().split('T')[0],
-        medications: newRecord.medications.split(',').map(m => m.trim()).filter(Boolean),
-        doctorName: 'Dr. Current User',
-        status: 'draft'
+        date: new Date().toISOString().split("T")[0],
+        medications: newRecord.medications
+          .split(",")
+          .map((m) => m.trim())
+          .filter(Boolean),
+        doctorName: "Dr. Current User",
+        status: "draft",
       }
 
-      setRecords(prev => [record, ...prev])
+      setRecords((prev) => [record, ...prev])
       setNewRecord({
-        patientId: '',
-        patientName: '',
-        type: 'consultation',
-        symptoms: '',
-        diagnosis: '',
-        medications: '',
+        patientId: "",
+        patientName: "",
+        type: "consultation",
+        symptoms: "",
+        diagnosis: "",
+        medications: "",
         vitals: {
-          temperature: '',
-          bloodPressure: '',
-          heartRate: '',
-          weight: '',
-          height: ''
+          temperature: "",
+          bloodPressure: "",
+          heartRate: "",
+          weight: "",
+          height: "",
         },
-        notes: '',
-        attachments: []
+        notes: "",
+        attachments: [],
       })
       setShowAddForm(false)
       setAiSuggestions([])
       setIsLoading(false)
-      toast.success('Medical record added successfully!')
+      toast.success("Medical record added successfully!")
     }, 1000)
   }
 
-  const filteredRecords = records.filter(record =>
-    record.patientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    record.diagnosis.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    record.symptoms.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredRecords = records.filter(
+    (record) =>
+      record.patientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      record.diagnosis.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      record.symptoms.toLowerCase().includes(searchTerm.toLowerCase()),
   )
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'bg-green-100 text-green-800'
-      case 'reviewed': return 'bg-blue-100 text-blue-800'
-      case 'draft': return 'bg-yellow-100 text-yellow-800'
-      default: return 'bg-gray-100 text-gray-800'
+      case "completed":
+        return "bg-green-100 text-green-800"
+      case "reviewed":
+        return "bg-blue-100 text-blue-800"
+      case "draft":
+        return "bg-yellow-100 text-yellow-800"
+      default:
+        return "bg-gray-100 text-gray-800"
     }
   }
 
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case 'consultation': return <Stethoscope className="h-4 w-4" />
-      case 'lab': return <Activity className="h-4 w-4" />
-      case 'imaging': return <Eye className="h-4 w-4" />
-      case 'procedure': return <FileText className="h-4 w-4" />
-      default: return <FileText className="h-4 w-4" />
+      case "consultation":
+        return <Stethoscope className="h-4 w-4" />
+      case "lab":
+        return <Activity className="h-4 w-4" />
+      case "imaging":
+        return <Eye className="h-4 w-4" />
+      case "procedure":
+        return <FileText className="h-4 w-4" />
+      default:
+        return <FileText className="h-4 w-4" />
     }
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 to-green-50">
       {/* Header */}
-      <motion.header 
+      <motion.header
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="bg-white/80 backdrop-blur-sm border-b border-sky-100 sticky top-0 z-50"
@@ -266,12 +286,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Button
-                onClick={onBack}
-                variant="ghost"
-                size="sm"
-                className="rounded-xl hover:bg-sky-100"
-              >
+              <Button onClick={onBack} variant="ghost" size="sm" className="rounded-xl hover:bg-sky-100">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Dashboard
               </Button>
@@ -281,10 +296,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
               </div>
             </div>
 
-            <Button
-              onClick={() => setShowAddForm(true)}
-              className="bg-sky-600 hover:bg-sky-700 text-white rounded-xl"
-            >
+            <Button onClick={() => setShowAddForm(true)} className="bg-sky-600 hover:bg-sky-700 text-white rounded-xl">
               <Plus className="h-4 w-4 mr-2" />
               New Record
             </Button>
@@ -294,11 +306,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
 
       <div className="container mx-auto px-4 py-8">
         {/* Search and Filters */}
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="mb-8"
-        >
+        <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="mb-8">
           <Card className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row gap-4">
@@ -349,8 +357,10 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <Card className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                      onClick={() => setSelectedRecord(record)}>
+                <Card
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                  onClick={() => setSelectedRecord(record)}
+                >
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-3">
@@ -365,9 +375,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                         </div>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Badge className={`rounded-full ${getStatusColor(record.status)}`}>
-                          {record.status}
-                        </Badge>
+                        <Badge className={`rounded-full ${getStatusColor(record.status)}`}>{record.status}</Badge>
                       </div>
                     </div>
                   </CardHeader>
@@ -416,11 +424,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
         )}
 
         {filteredRecords.length === 0 && !isLoading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-12"
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
             <FileText className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-600 mb-2">No medical records found</h3>
             <p className="text-gray-500 mb-4">Try adjusting your search criteria or add a new record.</p>
@@ -437,15 +441,15 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-gray-800">New Medical Record</DialogTitle>
-            <DialogDescription>
-              Create a new medical record with AI-powered assistance.
-            </DialogDescription>
+            <DialogDescription>Create a new medical record with AI-powered assistance.</DialogDescription>
           </DialogHeader>
 
           <div className="space-y-6 py-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="patientName" className="text-gray-700 font-medium">Patient Name *</Label>
+                <Label htmlFor="patientName" className="text-gray-700 font-medium">
+                  Patient Name *
+                </Label>
                 <Input
                   id="patientName"
                   value={newRecord.patientName}
@@ -456,8 +460,13 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="type" className="text-gray-700 font-medium">Record Type</Label>
-                <Select value={newRecord.type} onValueChange={(value: any) => setNewRecord({ ...newRecord, type: value })}>
+                <Label htmlFor="type" className="text-gray-700 font-medium">
+                  Record Type
+                </Label>
+                <Select
+                  value={newRecord.type}
+                  onValueChange={(value: any) => setNewRecord({ ...newRecord, type: value })}
+                >
                   <SelectTrigger className="rounded-xl border-sky-200 focus:border-sky-400">
                     <SelectValue placeholder="Select record type" />
                   </SelectTrigger>
@@ -474,7 +483,9 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
             {/* Symptoms with AI */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <Label htmlFor="symptoms" className="text-gray-700 font-medium">Symptoms *</Label>
+                <Label htmlFor="symptoms" className="text-gray-700 font-medium">
+                  Symptoms *
+                </Label>
                 <Button
                   type="button"
                   variant="outline"
@@ -502,7 +513,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                 placeholder="Describe patient symptoms..."
                 className="rounded-xl border-sky-200 focus:border-sky-400 min-h-[100px]"
               />
-              
+
               {aiSuggestions.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -518,7 +529,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                       <button
                         key={index}
                         type="button"
-                        onClick={() => setNewRecord({ ...newRecord, diagnosis: suggestion.replace(/^\d+\.\s*/, '') })}
+                        onClick={() => setNewRecord({ ...newRecord, diagnosis: suggestion.replace(/^\d+\.\s*/, "") })}
                         className="block w-full text-left p-2 text-sm text-blue-700 hover:bg-blue-100 rounded-lg transition-colors"
                       >
                         {suggestion}
@@ -533,7 +544,9 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="diagnosis" className="text-gray-700 font-medium">Diagnosis</Label>
+              <Label htmlFor="diagnosis" className="text-gray-700 font-medium">
+                Diagnosis
+              </Label>
               <Input
                 id="diagnosis"
                 value={newRecord.diagnosis}
@@ -551,10 +564,12 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                   <Label className="text-gray-700 font-medium">Temperature</Label>
                   <Input
                     value={newRecord.vitals.temperature}
-                    onChange={(e) => setNewRecord({ 
-                      ...newRecord, 
-                      vitals: { ...newRecord.vitals, temperature: e.target.value }
-                    })}
+                    onChange={(e) =>
+                      setNewRecord({
+                        ...newRecord,
+                        vitals: { ...newRecord.vitals, temperature: e.target.value },
+                      })
+                    }
                     placeholder="98.6°F"
                     className="rounded-xl border-sky-200 focus:border-sky-400"
                   />
@@ -563,10 +578,12 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                   <Label className="text-gray-700 font-medium">Blood Pressure</Label>
                   <Input
                     value={newRecord.vitals.bloodPressure}
-                    onChange={(e) => setNewRecord({ 
-                      ...newRecord, 
-                      vitals: { ...newRecord.vitals, bloodPressure: e.target.value }
-                    })}
+                    onChange={(e) =>
+                      setNewRecord({
+                        ...newRecord,
+                        vitals: { ...newRecord.vitals, bloodPressure: e.target.value },
+                      })
+                    }
                     placeholder="120/80"
                     className="rounded-xl border-sky-200 focus:border-sky-400"
                   />
@@ -575,10 +592,12 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                   <Label className="text-gray-700 font-medium">Heart Rate</Label>
                   <Input
                     value={newRecord.vitals.heartRate}
-                    onChange={(e) => setNewRecord({ 
-                      ...newRecord, 
-                      vitals: { ...newRecord.vitals, heartRate: e.target.value }
-                    })}
+                    onChange={(e) =>
+                      setNewRecord({
+                        ...newRecord,
+                        vitals: { ...newRecord.vitals, heartRate: e.target.value },
+                      })
+                    }
                     placeholder="72 bpm"
                     className="rounded-xl border-sky-200 focus:border-sky-400"
                   />
@@ -587,10 +606,12 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                   <Label className="text-gray-700 font-medium">Weight</Label>
                   <Input
                     value={newRecord.vitals.weight}
-                    onChange={(e) => setNewRecord({ 
-                      ...newRecord, 
-                      vitals: { ...newRecord.vitals, weight: e.target.value }
-                    })}
+                    onChange={(e) =>
+                      setNewRecord({
+                        ...newRecord,
+                        vitals: { ...newRecord.vitals, weight: e.target.value },
+                      })
+                    }
                     placeholder="150 lbs"
                     className="rounded-xl border-sky-200 focus:border-sky-400"
                   />
@@ -599,19 +620,23 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                   <Label className="text-gray-700 font-medium">Height</Label>
                   <Input
                     value={newRecord.vitals.height}
-                    onChange={(e) => setNewRecord({ 
-                      ...newRecord, 
-                      vitals: { ...newRecord.vitals, height: e.target.value }
-                    })}
-                    placeholder="5'8\""\
-                    className="rounded-xl border-sky-200 focus:border-sky-400"\
+                    onChange={(e) =>
+                      setNewRecord({
+                        ...newRecord,
+                        vitals: { ...newRecord.vitals, height: e.target.value },
+                      })
+                    }
+                    placeholder="5'8&quot;"
+                    className="rounded-xl border-sky-200 focus:border-sky-400"
                   />
-                </div>\
+                </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="medications" className="text-gray-700 font-medium">Medications</Label>
+              <Label htmlFor="medications" className="text-gray-700 font-medium">
+                Medications
+              </Label>
               <Input
                 id="medications"
                 value={newRecord.medications}
@@ -622,7 +647,9 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="notes" className="text-gray-700 font-medium">Clinical Notes</Label>
+              <Label htmlFor="notes" className="text-gray-700 font-medium">
+                Clinical Notes
+              </Label>
               <Textarea
                 id="notes"
                 value={newRecord.notes}
@@ -671,9 +698,7 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold text-gray-800">Medical Record Details</DialogTitle>
-              <DialogDescription>
-                Complete medical record for {selectedRecord.patientName}
-              </DialogDescription>
+              <DialogDescription>Complete medical record for {selectedRecord.patientName}</DialogDescription>
             </DialogHeader>
 
             <div className="space-y-6 py-4">
@@ -684,7 +709,9 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-800">{selectedRecord.patientName}</h3>
-                    <p className="text-gray-600">{new Date(selectedRecord.date).toLocaleDateString()} • {selectedRecord.type}</p>
+                    <p className="text-gray-600">
+                      {new Date(selectedRecord.date).toLocaleDateString()} • {selectedRecord.type}
+                    </p>
                   </div>
                 </div>
                 <Badge className={`rounded-full ${getStatusColor(selectedRecord.status)}`}>
@@ -782,14 +809,12 @@ export default function MedicalRecords({ onBack }: MedicalRecordsProps) {
                   <Download className="h-4 w-4 mr-2" />
                   Export PDF
                 </Button>
-                <Button className="bg-sky-600 hover:bg-sky-700 text-white rounded-xl">
-                  Edit Record
-                </Button>
+                <Button className="bg-sky-600 hover:bg-sky-700 text-white rounded-xl">Edit Record</Button>
               </div>
             </div>
           </DialogContent>
         </Dialog>
       )}
     </div>
-  )\
+  )
 }
